@@ -34,7 +34,7 @@
         header {
             background-color: var(--azul-principal);
             color: white;
-            padding: 20px 0;
+            padding: 25px 0 15px;
             text-align: center;
         }
         
@@ -42,35 +42,38 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
             margin-bottom: 15px;
         }
         
         .logo-img {
-            max-height: 80px;
+            height: 120px; /* Tamanho aumentado */
+            width: auto;
+            transition: all 0.3s;
         }
         
         .slogan {
             font-style: italic;
             margin-bottom: 10px;
+            font-size: 1.1rem;
         }
         
         /* Banner Principal */
         .hero {
             background: linear-gradient(135deg, var(--azul-principal), var(--azul-claro));
-            padding: 40px 0;
+            padding: 50px 0;
             text-align: center;
             color: white;
         }
         
         .hero h1 {
-            font-size: 32px;
+            font-size: 2.2rem;
             margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
         
         /* Seções */
         section {
-            padding: 30px 0;
+            padding: 35px 0;
             border-bottom: 1px solid #ddd;
         }
         
@@ -78,6 +81,7 @@
             color: var(--azul-principal);
             text-align: center;
             margin-bottom: 30px;
+            font-size: 1.8rem;
         }
         
         /* Botão de Valores */
@@ -85,54 +89,74 @@
             background-color: var(--azul-principal);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 14px 28px;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 1.1rem;
             cursor: pointer;
-            margin: 20px auto;
+            margin: 25px auto;
             display: block;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
         
         .price-toggle-btn:hover {
             background-color: #0a7acc;
+            transform: translateY(-2px);
         }
         
-        /* Tabelas de Preços (inicialmente ocultas) */
+        /* Tabelas de Preços */
         .price-tables {
             display: none;
             overflow: hidden;
             transition: all 0.5s ease;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         .price-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
         .price-table th, .price-table td {
             border: 1px solid #ddd;
-            padding: 12px;
+            padding: 14px;
             text-align: center;
         }
         
         .price-table th {
             background-color: var(--azul-principal);
             color: white;
+            font-weight: 600;
         }
         
         .price-table tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f8f9fa;
+        }
+        
+        .price-table tr:hover {
+            background-color: #f1f8ff;
         }
         
         /* Destaques */
         .highlight {
             background-color: #e3f7ff;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 30px 0;
-            border-left: 4px solid var(--azul-claro);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 35px 0;
+            border-left: 5px solid var(--azul-claro);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .highlight h3 {
+            color: var(--azul-principal);
+            margin-top: 0;
         }
         
         /* Botões */
@@ -140,16 +164,19 @@
             display: inline-block;
             background-color: #25D366;
             color: white;
-            padding: 15px 25px;
+            padding: 16px 32px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            margin: 20px 0;
-            transition: background-color 0.3s;
+            margin: 25px 0;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
         
         .whatsapp-btn:hover {
             background-color: #128C7E;
+            transform: translateY(-2px);
         }
         
         /* Rodapé */
@@ -157,30 +184,50 @@
             background-color: var(--preto);
             color: white;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 40px;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-logo {
+            height: 100px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
         }
         
         .payment-methods {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
-            margin: 20px 0;
+            margin: 25px 0;
         }
         
-        .payment-methods img {
-            height: 30px;
+        .payment-methods span {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        .contact-info p {
+            margin: 8px 0;
         }
         
         /* Responsivo */
         @media (max-width: 768px) {
+            .logo-img {
+                height: 90px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
             .price-table {
                 font-size: 14px;
             }
             
-            .hero h1 {
-                font-size: 24px;
+            .whatsapp-btn {
+                padding: 14px 25px;
             }
         }
     </style>
@@ -190,7 +237,9 @@
     <header>
         <div class="container">
             <div class="logo-container">
-                <img src="pictures/logo-confort-servicos-opticos.png" alt="Confort Serviços Ópticos" class="logo-img">
+                <img src="pictures/logos/logo-confort-servicos-opticos.png" 
+                     alt="Confort Serviços Ópticos" 
+                     class="logo-img">
             </div>
             <div class="slogan">Precisão e qualidade em cada lente</div>
         </div>
@@ -217,7 +266,7 @@
         <!-- Botão para mostrar tabelas -->
         <button class="price-toggle-btn" onclick="togglePriceTables()">CONSULTAR VALORES</button>
         
-        <!-- Tabelas de Preços (inicialmente ocultas) -->
+        <!-- Tabelas de Preços -->
         <div id="priceTables" class="price-tables">
             <h3>MONTAGEM</h3>
             <table class="price-table">
@@ -320,7 +369,7 @@
         
         <div style="text-align: center; margin: 40px 0;">
             <a href="https://wa.me/5581988854895" class="whatsapp-btn">ORÇAMENTO RÁPIDO PELO WHATSAPP</a>
-            <p>(81) 98885-4895</p>
+            <p style="font-size: 1.2rem;">(81) 98885-4895</p>
         </div>
         
         <div class="highlight">
@@ -331,7 +380,7 @@
                 <span>Transferência</span>
                 <span>Dinheiro</span>
             </div>
-            <p style="text-align: center; margin-top: 15px;">
+            <p style="text-align: center; margin-top: 20px;">
                 <strong>Chave PIX:</strong> 81 98885-4895 (CPF/CNPJ)
             </p>
         </div>
@@ -340,9 +389,9 @@
     <!-- Rodapé -->
     <footer>
         <div class="container">
-            <div class="logo-container">
-                <img src="pictures/logos/logo-confort-servicos-opticos-white.png" alt="Confort Serviços Ópticos" class="logo-img" style="filter: brightness(0) invert(1);">
-            </div>
+            <img src="pictures/logos/logo-confort-servicos-opticos-white.png" 
+                 alt="Confort Serviços Ópticos" 
+                 class="footer-logo">
             <div class="contact-info">
                 <p>WhatsApp: (81) 98885-4895</p>
                 <p>E-mail: contato@confortlab.com.br</p>
@@ -359,9 +408,11 @@
             if (priceTables.style.display === 'none' || !priceTables.style.display) {
                 priceTables.style.display = 'block';
                 button.textContent = 'FECHAR VALORES';
+                button.style.backgroundColor = '#e74c3c';
             } else {
                 priceTables.style.display = 'none';
                 button.textContent = 'CONSULTAR VALORES';
+                button.style.backgroundColor = 'var(--azul-principal)';
             }
         }
     </script>
