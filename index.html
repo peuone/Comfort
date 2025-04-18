@@ -11,6 +11,7 @@
             --azul-claro: #03fcf2;
             --preto: #000000;
             --branco: #f5f6f3;
+            --vermelho: #e74c3c;
         }
 
         /* Estilos Globais */
@@ -34,7 +35,7 @@
         header {
             background-color: var(--azul-principal);
             color: white;
-            padding: 25px 0 15px;
+            padding: 15px 0 0;
             text-align: center;
         }
         
@@ -42,19 +43,58 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .logo-img {
-            height: 120px; /* Tamanho aumentado */
+            height: 100px;
             width: auto;
             transition: all 0.3s;
         }
         
-        .slogan {
-            font-style: italic;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+        .quick-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 15px 0;
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        .quick-btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .quick-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .btn-orcamento {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .btn-precos {
+            background-color: #f39c12;
+            color: white;
+        }
+        
+        .btn-faq {
+            background-color: #9b59b6;
+            color: white;
+        }
+        
+        .quick-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
         
         /* Banner Principal */
@@ -63,6 +103,8 @@
             padding: 50px 0;
             text-align: center;
             color: white;
+            position: relative;
+            overflow: hidden;
         }
         
         .hero h1 {
@@ -71,21 +113,108 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
         
-        /* Seções */
-        section {
-            padding: 35px 0;
-            border-bottom: 1px solid #ddd;
+        /* Seção Lente Exclusiva */
+        .produto-destaque {
+            background-color: white;
+            padding: 40px 20px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            max-width: 900px;
         }
         
-        h2 {
+        .produto-destaque::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--azul-principal), var(--azul-claro));
+        }
+        
+        .produto-titulo {
             color: var(--azul-principal);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .produto-subtitulo {
+            color: #7f8c8d;
             text-align: center;
             margin-bottom: 30px;
-            font-size: 1.8rem;
+            font-style: italic;
         }
         
-        /* Botão de Valores */
-        .price-toggle-btn {
+        /* MODAIS */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: var(--azul-principal);
+        }
+        
+        /* Formulário */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .form-submit {
             background-color: var(--azul-principal);
             color: white;
             border: none;
@@ -93,90 +222,59 @@
             border-radius: 5px;
             font-size: 1.1rem;
             cursor: pointer;
-            margin: 25px auto;
-            display: block;
             transition: all 0.3s;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
         }
         
-        .price-toggle-btn:hover {
+        .form-submit:hover {
             background-color: #0a7acc;
-            transform: translateY(-2px);
         }
         
-        /* Tabelas de Preços */
-        .price-tables {
-            display: none;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            animation: fadeIn 0.5s;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
+        /* Tabelas */
         .price-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 20px 0;
         }
         
         .price-table th, .price-table td {
             border: 1px solid #ddd;
-            padding: 14px;
+            padding: 12px;
             text-align: center;
         }
         
         .price-table th {
             background-color: var(--azul-principal);
             color: white;
-            font-weight: 600;
         }
         
         .price-table tr:nth-child(even) {
             background-color: #f8f9fa;
         }
         
-        .price-table tr:hover {
-            background-color: #f1f8ff;
-        }
-        
-        /* Destaques */
-        .highlight {
-            background-color: #e3f7ff;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 35px 0;
-            border-left: 5px solid var(--azul-claro);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
-        .highlight h3 {
-            color: var(--azul-principal);
-            margin-top: 0;
-        }
-        
-        /* Botões */
-        .whatsapp-btn {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            padding: 16px 32px;
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 25px 0;
-            transition: all 0.3s;
-            font-size: 1.1rem;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
         
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-            transform: translateY(-2px);
+        .faq-question {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 15px 20px;
+            display: none;
+            background-color: white;
         }
         
         /* Rodapé */
@@ -189,7 +287,7 @@
         }
         
         .footer-logo {
-            height: 100px;
+            height: 80px;
             margin-bottom: 20px;
             filter: brightness(0) invert(1);
         }
@@ -208,40 +306,50 @@
             border-radius: 20px;
         }
         
-        .contact-info p {
-            margin: 8px 0;
-        }
-        
         /* Responsivo */
         @media (max-width: 768px) {
             .logo-img {
-                height: 90px;
+                height: 80px;
             }
             
-            .hero h1 {
-                font-size: 1.8rem;
+            .quick-actions {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .price-table {
-                font-size: 14px;
+            .quick-btn {
+                width: 80%;
             }
             
-            .whatsapp-btn {
-                padding: 14px 25px;
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+                padding: 20px;
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Cabeçalho -->
     <header>
         <div class="container">
             <div class="logo-container">
-                <img src="pictures/logo-confort-servicos-opticos.png" 
+                <img src="pictures/logos/logo-confort-servicos-opticos.png" 
                      alt="Confort Serviços Ópticos" 
                      class="logo-img">
             </div>
-            <div class="slogan">Precisão e qualidade em cada lente</div>
+            <div class="quick-actions">
+                <button class="quick-btn btn-orcamento">
+                    <i class="fas fa-file-alt"></i> Pedir Orçamento
+                </button>
+                <button class="quick-btn btn-precos">
+                    <i class="fas fa-tags"></i> Tabela de Preços
+                </button>
+                <button class="quick-btn btn-faq">
+                    <i class="fas fa-question-circle"></i> Dúvidas Frequentes
+                </button>
+            </div>
         </div>
     </header>
     
@@ -249,25 +357,98 @@
     <section class="hero">
         <div class="container">
             <h1>Do bloco à lente final: nós fabricamos e entregamos com qualidade total!</h1>
-            <a href="https://wa.me/5581988854895" class="whatsapp-btn">FALE CONOSCO NO WHATSAPP</a>
+            <a href="https://wa.me/5581988854895" class="whatsapp-btn">FALE DIRETO NO WHATSAPP</a>
         </div>
     </section>
     
-    <!-- Serviços -->
+    <!-- Lente Exclusiva -->
     <section class="container">
-        <h2>NOSSOS SERVIÇOS</h2>
-        
-        <div class="highlight">
-            <h3>Diferencial Confort</h3>
-            <p>Utilizamos tecnologia de ponta, como a Essilor MR Orange, para precisão e qualidade superior nas suas lentes.</p>
-            <p>Não tem a lente? A gente cuida de tudo: compramos o bloco, fabricamos e entregamos pronta pra você!</p>
+        <div class="produto-destaque">
+            <h2 class="produto-titulo">Lente CONFORT XX</h2>
+            <p class="produto-subtitulo">Tecnologia Freeform exclusiva para máxima precisão visual</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: var(--azul-principal);">Benefícios:</h3>
+                    <ul style="line-height: 1.8;">
+                        <li>Otimização digital Freeform avançada</li>
+                        <li>Redução de distorções periféricas</li>
+                        <li>Adaptação mais rápida</li>
+                        <li>Design ultra-fino mesmo para graus elevados</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <img src="pictures/produtos/lente-confort-xx.jpg" alt="Lente Confort XX" style="max-width: 100%; border-radius: 8px;">
+                </div>
+            </div>
         </div>
-        
-        <!-- Botão para mostrar tabelas -->
-        <button class="price-toggle-btn" onclick="togglePriceTables()">CONSULTAR VALORES</button>
-        
-        <!-- Tabelas de Preços -->
-        <div id="priceTables" class="price-tables">
+    </section>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <img src="pictures/logos/logo-confort-servicos-opticos-white.png" 
+                 alt="Confort Serviços Ópticos" 
+                 class="footer-logo">
+            <div class="contact-info">
+                <p><i class="fas fa-phone-alt"></i> WhatsApp: (81) 98885-4895</p>
+                <p><i class="fas fa-envelope"></i> E-mail: contato@confortlab.com.br</p>
+            </div>
+            <div class="payment-methods">
+                <span>PIX</span>
+                <span>Cartões</span>
+                <span>Transferência</span>
+                <span>Dinheiro</span>
+            </div>
+            <p>&copy; 2023 Confort Serviços Ópticos - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Orçamento -->
+    <div id="orcamentoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="text-align: center; color: var(--azul-principal); margin-top: 0;">Solicite seu Orçamento</h2>
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefone">WhatsApp:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="servico">Serviço Desejado:</label>
+                    <select id="servico" name="servico" required>
+                        <option value="">Selecione...</option>
+                        <option value="Montagem">Montagem</option>
+                        <option value="Fabricação">Fabricação de Lentes</option>
+                        <option value="Confort XX">Lente Confort XX</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensagem">Detalhes Adicionais:</label>
+                    <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit">
+                    <i class="fas fa-paper-plane"></i> Enviar para WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Preços -->
+    <div id="precosModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="color: var(--azul-principal); text-align: center;">Tabela de Preços</h2>
+            
             <h3>MONTAGEM</h3>
             <table class="price-table">
                 <thead>
@@ -354,64 +535,129 @@
                         <td>Degradê</td>
                         <td>R$ XX</td>
                     </tr>
-                    </tbody>
+                    <tr>
+                        <td>Toral</td>
+                        <td>R$ XX</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
-    </section>
-    
-    <!-- Contato -->
-    <section class="container">
-        <h2>CONTATO</h2>
-        
-        <div style="text-align: center; margin: 40px 0;">
-            <a href="https://wa.me/5581988854895" class="whatsapp-btn">ORÇAMENTO RÁPIDO PELO WHATSAPP</a>
-            <p style="font-size: 1.2rem;">(81) 98885-4895</p>
-        </div>
-        
-        <div class="highlight">
-            <h3>Formas de Pagamento</h3>
-            <div class="payment-methods">
-                <span>PIX</span>
-                <span>Cartões</span>
-                <span>Transferência</span>
-                <span>Dinheiro</span>
+    </div>
+
+    <!-- Modal de FAQ -->
+    <div id="faqModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="color: var(--azul-principal); text-align: center;">Dúvidas Frequentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Qual o prazo para fabricação das lentes?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    O prazo padrão é de 2-3 dias úteis para lentes simples. Lentes especiais como a Confort XX podem levar até 5 dias úteis.
+                </div>
             </div>
-            <p style="text-align: center; margin-top: 20px;">
-                <strong>Chave PIX:</strong> 81 98885-4895
-            </p>
-        </div>
-    </section>
-    
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <img src="pictures/logo-confort-servicos-opticos-white.png" 
-                 alt="Confort Serviços Ópticos" 
-                 class="footer-logo">
-            <div class="contact-info">
-                <p>WhatsApp: (81) 98885-4895</p>
-                <p>E-mail: contato@confortlab.com.br</p>
-                <p>R. Rosário da Boa Vista, 101 - Boa Vista/Recife - PE, 50060-100</p>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Vocês fazem envio para todo o Brasil?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sim, realizamos envios para todo o território nacional via transportadoras parceiras.
+                </div>
             </div>
-            <p>&copy; 2023 Confort Serviços Ópticos - Todos os direitos reservados</p>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Qual a diferença da lente Confort XX?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Nossa lente exclusiva utiliza tecnologia Freeform de última geração, proporcionando maior precisão óptica e conforto visual superior.
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
 
     <script>
-        function togglePriceTables() {
-            const priceTables = document.getElementById('priceTables');
-            const button = document.querySelector('.price-toggle-btn');
-            
-            if (priceTables.style.display === 'none' || !priceTables.style.display) {
-                priceTables.style.display = 'block';
-                button.textContent = 'FECHAR VALORES';
-                button.style.backgroundColor = '#e74c3c';
-            } else {
-                priceTables.style.display = 'none';
-                button.textContent = 'CONSULTAR VALORES';
-                button.style.backgroundColor = 'var(--azul-principal)';
-            }
+        // Funções para os Modais
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Eventos dos botões
+        document.querySelector('.btn-orcamento').addEventListener('click', function() {
+            openModal('orcamentoModal');
+        });
+
+        document.querySelector('.btn-precos').addEventListener('click', function() {
+            openModal('precosModal');
+        });
+
+        document.querySelector('.btn-faq').addEventListener('click', function() {
+            openModal('faqModal');
+        });
+
+        // Fechar modais
+        document.querySelectorAll('.close-modal').forEach(function(closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                closeModal(modal.id);
+            });
+        });
+
+        // Fechar ao clicar fora
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        });
+
+        // FAQ Interativo
+        document.querySelectorAll('.faq-question').forEach(function(question) {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    answer.style.display = 'block';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        // Envio do formulário para WhatsApp
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const servico = document.getElementById('servico').value;
+            const mensagem = document.getElementById('mensagem').value;
+            
+            const texto = `*Orçamento Confort Ópticos*%0A%0A` +
+                          `*Nome:* ${nome}%0A` +
+                          `*Telefone:* ${telefone}%0A` +
+                          `*Serviço:* ${servico}%0A` +
+                          `*Detalhes:* ${mensagem}`;
+            
+            window.open(`https://wa.me/5581988854895?text=${texto}`, '_blank');
+            closeModal('orcamentoModal');
+        });
     </script>
 </body>
 </html>
