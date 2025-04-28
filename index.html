@@ -10,8 +10,12 @@
             --azul-principal: #0e90ff;
             --azul-claro: #03fcf2;
             --preto: #000000;
-            --branco: #f5f6f3;
-            --vermelho: #e74c3c;
+            --branco: #ffffff;
+            --cinza-claro: #f5f5f5;
+            --cinza-medio: #e0e0e0;
+            --cinza-escuro: #757575;
+            --verde-whatsapp: #25D366;
+            --verde-whatsapp-hover: #128C7E;
         }
 
         /* Estilos Globais */
@@ -61,20 +65,17 @@
             background-color: rgba(0,0,0,0.1);
         }
         
+        /* Botões Modernos */
         .quick-btn {
             padding: 10px 20px;
             border-radius: 5px;
-            border: none;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-        
-        .quick-btn i {
-            font-size: 1.2rem;
+            border: none;
         }
         
         .btn-orcamento {
@@ -97,56 +98,31 @@
             box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
         
-        /* Banner Principal */
-        .hero {
-            background: linear-gradient(135deg, var(--azul-principal), var(--azul-claro));
-            padding: 50px 0;
-            text-align: center;
+        .quick-btn i {
+            font-size: 1.2rem;
+        }
+        
+        /* Botão WhatsApp */
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: var(--verde-whatsapp);
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-        }
-        
-        /* Seção Lente Exclusiva */
-        .produto-destaque {
-            background-color: white;
-            padding: 40px 20px;
-            margin: 40px auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            max-width: 900px;
-        }
-        
-        .produto-destaque::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--azul-principal), var(--azul-claro));
-        }
-        
-        .produto-titulo {
-            color: var(--azul-principal);
-            font-size: 2rem;
-            margin-bottom: 15px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 25px auto;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            border: none;
             text-align: center;
+            max-width: 300px;
         }
         
-        .produto-subtitulo {
-            color: #7f8c8d;
-            text-align: center;
-            margin-bottom: 30px;
-            font-style: italic;
+        .whatsapp-btn:hover {
+            background-color: var(--verde-whatsapp-hover);
+            transform: translateY(-2px);
         }
         
         /* MODAIS */
@@ -219,7 +195,7 @@
             color: white;
             border: none;
             padding: 14px 28px;
-            border-radius: 5px;
+            border-radius: 50px;
             font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s;
@@ -251,6 +227,31 @@
         
         .price-table tr:nth-child(even) {
             background-color: #f8f9fa;
+        }
+        
+        .discount-badge {
+            background-color: #2ecc71;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        /* Seção Pix */
+        .pix-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            border-left: 4px solid #32CD32;
+        }
+        
+        .pix-section h3 {
+            color: #32CD32;
+            margin-top: 0;
         }
         
         /* FAQ */
@@ -357,29 +358,15 @@
     <section class="hero">
         <div class="container">
             <h1>Do bloco à lente final: nós fabricamos e entregamos com qualidade total!</h1>
-            <a href="https://wa.me/5581988854895" class="whatsapp-btn">FALE DIRETO NO WHATSAPP</a>
-        </div>
-    </section>
-    
-    <!-- Lente Exclusiva -->
-    <section class="container">
-        <div class="produto-destaque">
-            <h2 class="produto-titulo">Lente CONFORT XX</h2>
-            <p class="produto-subtitulo">Tecnologia Freeform exclusiva para máxima precisão visual</p>
+            <a href="https://wa.me/5581988854895" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> FALE DIRETO NO WHATSAPP
+            </a>
             
-            <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
-                <div style="flex: 1; min-width: 300px;">
-                    <h3 style="color: var(--azul-principal);">Benefícios:</h3>
-                    <ul style="line-height: 1.8;">
-                        <li>Otimização digital Freeform avançada</li>
-                        <li>Redução de distorções periféricas</li>
-                        <li>Adaptação mais rápida</li>
-                        <li>Design ultra-fino mesmo para graus elevados</li>
-                    </ul>
-                </div>
-                <div style="flex: 1; min-width: 300px; text-align: center;">
-                    <img src="pictures/lente-confort-xx.jpg" alt="Lente Confort XX" style="max-width: 100%; border-radius: 8px;">
-                </div>
+            <!-- Seção Pix Adicionada -->
+            <div class="pix-section">
+                <h3><i class="fas fa-qrcode"></i> PAGAMENTO VIA PIX</h3>
+                <p>Chave PIX: (81) 98885-4895</p>
+                <p>Aceitamos pagamentos à vista com desconto especial!</p>
             </div>
         </div>
     </section>
@@ -426,7 +413,6 @@
                         <option value="">Selecione...</option>
                         <option value="Montagem">Montagem</option>
                         <option value="Fabricação">Fabricação de Lentes</option>
-                        <option value="Confort XX">Lente Confort XX</option>
                         <option value="Outro">Outro</option>
                     </select>
                 </div>
@@ -449,32 +435,53 @@
             <span class="close-modal">&times;</span>
             <h2 style="color: var(--azul-principal); text-align: center;">Tabela de Preços</h2>
             
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span class="discount-badge">10% OFF</span> Pagamentos à vista têm desconto especial!
+            </div>
+            
             <h3>MONTAGEM</h3>
             <table class="price-table">
                 <thead>
                     <tr>
                         <th>Material</th>
-                        <th>Fechada</th>
-                        <th>Nylon</th>
-                        <th>Parafusada</th>
+                        <th>Tipo</th>
+                        <th>À Vista</th>
+                        <th>A Prazo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Resina</td>
+                        <td rowspan="2">Resina</td>
+                        <td>Nylon/Fechada</td>
                         <td>R$ XX</td>
                         <td>R$ XX</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
                         <td>-</td>
                     </tr>
+                    
                     <tr>
-                        <td>Policarbonato</td>
-                        <td>R$ XX</td>
+                        <td rowspan="2">Policarbonato</td>
+                        <td>Nylon/Fechada</td>
                         <td>R$ XX</td>
                         <td>R$ XX</td>
                     </tr>
                     <tr>
-                        <td>Alto Índice</td>
+                        <td>Parafusada</td>
                         <td>R$ XX</td>
+                        <td>R$ XX</td>
+                    </tr>
+                    
+                    <tr>
+                        <td rowspan="2">Alto Índice</td>
+                        <td>Nylon/Fechada</td>
+                        <td>R$ XX</td>
+                        <td>R$ XX</td>
+                    </tr>
+                    <tr>
+                        <td>Parafusada</td>
                         <td>R$ XX</td>
                         <td>R$ XX</td>
                     </tr>
@@ -486,57 +493,58 @@
                 <thead>
                     <tr>
                         <th>Material</th>
-                        <th>Preço Base</th>
-                        <th>Acréscimo sem Forma*</th>
+                        <th>À Vista</th>
+                        <th>A Prazo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Resina</td>
                         <td>R$ XX</td>
-                        <td>+ R$ YY</td>
+                        <td>R$ XX</td>
                     </tr>
                     <tr>
                         <td>Policarbonato</td>
                         <td>R$ XX</td>
-                        <td>+ R$ YY</td>
+                        <td>R$ XX</td>
                     </tr>
                     <tr>
                         <td>Alto Índice</td>
                         <td>R$ XX</td>
-                        <td>+ R$ YY</td>
+                        <td>R$ XX</td>
                     </tr>
                 </tbody>
             </table>
-            <p><small>*Quando não há forma disponível em estoque</small></p>
+            <p><small>*Quando não há forma disponível em estoque será cobrado valor da fabricação da forma</small></p>
             
             <h3>SERVIÇOS ESPECIAIS</h3>
             <table class="price-table">
                 <thead>
                     <tr>
                         <th>Serviço</th>
-                        <th>Preço</th>
+                        <th>À Vista</th>
+                        <th>A Prazo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Prismas</td>
                         <td>R$ XX</td>
+                        <td>R$ XX</td>
                     </tr>
                     <tr>
                         <td>Formas sob medida</td>
                         <td>R$ XX</td>
+                        <td>R$ XX</td>
                     </tr>
                     <tr>
-                        <td>Coloração (uniforme)</td>
+                        <td>Coloração Uniforme</td>
+                        <td>R$ XX</td>
                         <td>R$ XX</td>
                     </tr>
                     <tr>
                         <td>Degradê</td>
                         <td>R$ XX</td>
-                    </tr>
-                    <tr>
-                        <td>Toral</td>
                         <td>R$ XX</td>
                     </tr>
                 </tbody>
@@ -545,103 +553,92 @@
     </div>
 
     <!-- Modal de FAQ -->
-<div id="faqModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2 style="color: var(--azul-principal); text-align: center;">Dúvidas Frequentes</h2>
-        
-        <div class="faq-item">
-            <div class="faq-question">
-                Qual o prazo para fabricação das lentes?
-                <i class="fas fa-chevron-down"></i>
+    <div id="faqModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="color: var(--azul-principal); text-align: center;">Dúvidas Frequentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Qual o prazo para fabricação das lentes?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    O prazo padrão é de 2-3 dias úteis para lentes simples. Lentes especiais podem levar até 5 dias úteis.
+                </div>
             </div>
-            <div class="faq-answer">
-                O prazo padrão é de 2-3 dias úteis para lentes simples. Lentes especiais como a Confort XX podem levar até 5 dias úteis.
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Como funciona o envio e a logística de coleta/entrega?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Atendemos exclusivamente ópticas e disponibilizamos serviços de coleta e entrega sob demanda, podendo ser solicitados via Uber, motoboy ou transportadora, conforme a preferência e localização da ótica parceira.
+                </div>
             </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">
-                Como funciona o envio e a logística de coleta/entrega?
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Atendemos exclusivamente ópticas e disponibilizamos serviços de coleta e entrega sob demanda, podendo ser solicitados via Uber, motoboy ou transportadora, conforme a preferência e localização da ótica parceira.
-            </div>
-        </div>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                Qual a diferença da lente Confort XX?
-                <i class="fas fa-chevron-down"></i>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Vocês trabalham com lentes multifocais ou só monofocais?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Trabalhamos com todos os tipos! Produzimos monofocais, bifocais e multifocais (progressivas), com personalização conforme a receita.
+                </div>
             </div>
-            <div class="faq-answer">
-                Nossa lente exclusiva utiliza tecnologia Freeform de última geração, proporcionando maior precisão óptica, campo de visão mais amplo e conforto visual superior.
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Quais materiais de lentes vocês oferecem?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Trabalhamos com CR-39, policarbonato, Trivex e resinas de alto índice (1.67, 1.74), ideais para diferentes graus e necessidades visuais.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    As lentes têm proteção contra luz azul?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sim! Oferecemos o tratamento Blue Light Block, que protege contra a luz azul nociva de telas, ideal para quem passa muito tempo no computador ou celular.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Como posso enviar meus pedidos?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Você pode enviar suas receitas e informações via WhatsApp ou encaminhar o serviço diretamente para o laboratório, com ou sem coleta, conforme a rotina da sua ótica.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Vocês fazem montagem completa com armação?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sim. Recebemos a armação da ótica e realizamos a montagem completa com as lentes fabricadas, garantindo qualidade e encaixe preciso.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Como funciona a garantia das lentes?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Para lentes fornecidas pelo cliente, garantimos a reposição sem custo em caso de perda ou dano durante o processo de fabricação. Para blocos e lentes fornecidos por fabricantes, a garantia segue as condições do fabricante original.
+                </div>
             </div>
         </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                Vocês trabalham com lentes multifocais ou só monofocais?
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Trabalhamos com todos os tipos! Produzimos monofocais, bifocais e multifocais (progressivas), com personalização conforme a receita.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                Quais materiais de lentes vocês oferecem?
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Trabalhamos com CR-39, policarbonato, Trivex e resinas de alto índice (1.67, 1.74), ideais para diferentes graus e necessidades visuais.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                As lentes têm proteção contra luz azul?
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Sim! Oferecemos o tratamento Blue Light Block, que protege contra a luz azul nociva de telas, ideal para quem passa muito tempo no computador ou celular.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                Como posso enviar meus pedidos?
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Você pode enviar suas receitas e informações via WhatsApp ou encaminhar o serviço diretamente para o laboratório, com ou sem coleta, conforme a rotina da sua ótica.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                Vocês fazem montagem completa com armação?
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Sim. Recebemos a armação da ótica e realizamos a montagem completa com as lentes fabricadas, garantindo qualidade e encaixe preciso.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                Como funciona a garantia das lentes?
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                Para lentes fornecidas pelo cliente, garantimos a reposição sem custo em caso de perda ou dano durante o processo de fabricação. Para blocos e lentes fornecidos por fabricantes, a garantia segue as condições do fabricante original.
-            </div>
-        </div>
-
     </div>
-</div>
 
     <script>
         // Funções para os Modais
