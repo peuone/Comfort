@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confort Serviços Ópticos - Laboratório de Lentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Cores Personalizadas */
         :root {
@@ -306,7 +307,51 @@
             padding: 8px 15px;
             border-radius: 20px;
         }
-        
+
+        /* Botão Imprimir */
+        .print-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 20px auto;
+        }
+
+        .print-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* Seção de consulta */
+        .consulta-section {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        /* Estilo para a tabela (inicialmente oculta) */
+        #tabela-precos-container {
+            display: none;
+            margin: 30px 0;
+        }
+
+        /* Ícone dinâmico no botão */
+        .btn-precos .fa-chevron-down {
+            transition: transform 0.3s;
+        }
+        .btn-precos.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
         /* Responsivo */
         @media (max-width: 768px) {
             .logo-img {
@@ -328,8 +373,41 @@
                 padding: 20px;
             }
         }
+
+        /* Estilos para impressão */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-content, #printable-content * {
+                visibility: visible;
+            }
+            #printable-content {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 20px;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-header {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .print-header img {
+                height: 80px;
+                margin-bottom: 10px;
+            }
+            .print-footer {
+                text-align: center;
+                margin-top: 30px;
+                font-size: 12px;
+                color: #666;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -345,7 +423,7 @@
                     <i class="fas fa-file-alt"></i> Pedir Orçamento
                 </button>
                 <button class="quick-btn btn-precos">
-                    <i class="fas fa-tags"></i> Tabela de Preços
+                    <i class="fas fa-tags"></i> Tabela de Preços <i class="fas fa-chevron-down"></i>
                 </button>
                 <button class="quick-btn btn-faq">
                     <i class="fas fa-question-circle"></i> Dúvidas Frequentes
@@ -370,73 +448,15 @@
             </div>
         </div>
     </section>
-    
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <img src="pictures/logo-confort-servicos-opticos-white.png" 
-                 alt="Confort Serviços Ópticos" 
-                 class="footer-logo">
-            <div class="contact-info">
-                <p><i class="fas fa-phone-alt"></i> WhatsApp: (81) 98885-4895</p>
-                <p><i class="fas fa-envelope"></i> E-mail: contato@confortlab.com.br</p>
-            </div>
-            <div class="payment-methods">
-                <span>PIX</span>
-                <span>Cartões</span>
-                <span>Transferência</span>
-                <span>Dinheiro</span>
-            </div>
-            <p>&copy; 2023 Confort Serviços Ópticos - Todos os direitos reservados</p>
-        </div>
-    </footer>
 
-    <!-- Modal de Orçamento -->
-    <div id="orcamentoModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 style="text-align: center; color: var(--azul-principal); margin-top: 0;">Solicite seu Orçamento</h2>
-            <form id="whatsappForm">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="telefone">WhatsApp:</label>
-                    <input type="tel" id="telefone" name="telefone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="servico">Serviço Desejado:</label>
-                    <select id="servico" name="servico" required>
-                        <option value="">Selecione...</option>
-                        <option value="Montagem">Montagem</option>
-                        <option value="Fabricação">Fabricação de Lentes</option>
-                        <option value="Outro">Outro</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="mensagem">Detalhes Adicionais:</label>
-                    <textarea id="mensagem" name="mensagem" rows="4"></textarea>
-                </div>
-                
-                <button type="submit" class="form-submit">
-                    <i class="fas fa-paper-plane"></i> Enviar para WhatsApp
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal de Preços -->
-    <div id="precosModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 style="color: var(--azul-principal); text-align: center;">Tabela de Preços</h2>
-            
-            <div style="text-align: center; margin-bottom: 20px;">
-                <span class="discount-badge">PROMO</span> Pagamentos à vista têm desconto especial!
+    <!-- Seção da Tabela de Preços (inicialmente oculta) -->
+    <section id="tabela-precos-container" class="container">
+        <div id="printable-content">
+            <div class="print-header">
+                <img src="pictures/logo-confort-servicos-opticos.png" 
+                     alt="Confort Serviços Ópticos">
+                <h2 style="color: var(--azul-principal);">Tabela de Preços</h2>
+                <p style="color: #2ecc71; font-weight: bold;">Pagamentos à vista têm desconto especial!</p>
             </div>
             
             <h3>MONTAGEM</h3>
@@ -517,6 +537,49 @@
             </table>
             <p><small>*Quando não há forma disponível em estoque será cobrado valor da fabricação da forma</small></p>
             
+            <h3>LENTES ESPECIAIS</h3>
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Lente</th>
+                        <th>À Vista</th>
+                        <th>A Prazo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Multi Incor</td>
+                        <td>R$ 120</td>
+                        <td>R$ 140</td>
+                    </tr>
+                    <tr>
+                        <td>Multi AR</td>
+                        <td>R$ 150</td>
+                        <td>R$ 170</td>
+                    </tr>
+                    <tr>
+                        <td>Multi Foto</td>
+                        <td>R$ 180</td>
+                        <td>R$ 200</td>
+                    </tr>
+                    <tr>
+                        <td>Multi Foto AR</td>
+                        <td>R$ 210</td>
+                        <td>R$ 230</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Seção de consulta -->
+            <div class="consulta-section">
+                <h4>Demais Lentes (consultar disponibilidade)</h4>
+                <ul>
+                    <li>VS</li>
+                    <li>Alto Índice</li>
+                </ul>
+                <p>Consultar disponibilidade e preços no campo de contato</p>
+            </div>
+            
             <h3>SERVIÇOS ESPECIAIS</h3>
             <table class="price-table">
                 <thead>
@@ -549,6 +612,74 @@
                     </tr>
                 </tbody>
             </table>
+
+            <button id="printPrices" class="print-btn">
+                <i class="fas fa-print"></i> Imprimir Tabela
+            </button>
+
+            <div class="print-footer">
+                <p>Confort Serviços Ópticos - WhatsApp: (81) 98885-4895</p>
+                <p>E-mail: contato@confortlab.com.br</p>
+                <p>Atualizado em: <span id="currentDate"></span></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <img src="pictures/logo-confort-servicos-opticos-white.png" 
+                 alt="Confort Serviços Ópticos" 
+                 class="footer-logo">
+            <div class="contact-info">
+                <p><i class="fas fa-phone-alt"></i> WhatsApp: (81) 98885-4895</p>
+                <p><i class="fas fa-envelope"></i> E-mail: contato@confortlab.com.br</p>
+            </div>
+            <div class="payment-methods">
+                <span>PIX</span>
+                <span>Cartões</span>
+                <span>Transferência</span>
+                <span>Dinheiro</span>
+            </div>
+            <p>&copy; 2023 Confort Serviços Ópticos - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Orçamento -->
+    <div id="orcamentoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="text-align: center; color: var(--azul-principal); margin-top: 0;">Solicite seu Orçamento</h2>
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefone">WhatsApp:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="servico">Serviço Desejado:</label>
+                    <select id="servico" name="servico" required>
+                        <option value="">Selecione...</option>
+                        <option value="Montagem">Montagem</option>
+                        <option value="Fabricação">Fabricação de Lentes</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensagem">Detalhes Adicionais:</label>
+                    <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit">
+                    <i class="fas fa-paper-plane"></i> Enviar para WhatsApp
+                </button>
+            </form>
         </div>
     </div>
 
@@ -652,13 +783,26 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Botão "Tabela de Preços" (mostrar/ocultar tabela)
+        document.querySelector('.btn-precos').addEventListener('click', function() {
+            const tabela = document.getElementById('tabela-precos-container');
+            const isHidden = tabela.style.display === 'none' || tabela.style.display === '';
+            
+            // Alterna visibilidade
+            tabela.style.display = isHidden ? 'block' : 'none';
+            
+            // Rola até a tabela se estiver sendo aberta
+            if (isHidden) {
+                tabela.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Adiciona/classe "active" para animar o ícone
+            this.classList.toggle('active', isHidden);
+        });
+
         // Eventos dos botões
         document.querySelector('.btn-orcamento').addEventListener('click', function() {
             openModal('orcamentoModal');
-        });
-
-        document.querySelector('.btn-precos').addEventListener('click', function() {
-            openModal('precosModal');
         });
 
         document.querySelector('.btn-faq').addEventListener('click', function() {
@@ -715,6 +859,16 @@
             
             window.open(`https://wa.me/5581988854895?text=${texto}`, '_blank');
             closeModal('orcamentoModal');
+        });
+
+        // Função para imprimir a tabela de preços
+        document.getElementById('printPrices').addEventListener('click', function() {
+            // Atualiza a data
+            const now = new Date();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('pt-BR');
+            
+            // Abre a janela de impressão
+            window.print();
         });
     </script>
 </body>
