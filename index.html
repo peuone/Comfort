@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confort Serviços Ópticos - Laboratório de Lentes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Cores Personalizadas */
         :root {
             --azul-principal: #0e90ff;
-            --azul-claro: #03fcf2;
+            --azul-destaque: #00E6E6;
             --preto: #000000;
             --branco: #ffffff;
             --cinza-claro: #f5f5f5;
@@ -21,11 +22,11 @@
 
         /* Estilos Globais */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            color: var(--preto);
-            background-color: var(--branco);
+            color: var(--branco);
+            background-color: var(--preto);
             line-height: 1.6;
         }
         
@@ -38,10 +39,11 @@
         
         /* Cabeçalho */
         header {
-            background-color: var(--azul-principal);
+            background-color: var(--preto);
             color: white;
             padding: 15px 0 0;
             text-align: center;
+            border-bottom: 1px solid var(--azul-destaque);
         }
         
         .logo-container {
@@ -63,7 +65,7 @@
             gap: 15px;
             flex-wrap: wrap;
             padding: 15px 0;
-            background-color: rgba(0,0,0,0.1);
+            background-color: rgba(255,255,255,0.1);
         }
         
         /* Botões Modernos */
@@ -85,8 +87,8 @@
         }
         
         .btn-precos {
-            background-color: #f39c12;
-            color: white;
+            background-color: var(--azul-destaque);
+            color: var(--preto);
         }
         
         .btn-faq {
@@ -140,7 +142,7 @@
         }
 
         .modal-content {
-            background-color: white;
+            background-color: var(--preto);
             margin: 5% auto;
             padding: 30px;
             border-radius: 10px;
@@ -149,6 +151,8 @@
             max-width: 700px;
             position: relative;
             animation: modalFadeIn 0.3s;
+            border: 1px solid var(--azul-destaque);
+            color: var(--branco);
         }
 
         @keyframes modalFadeIn {
@@ -167,7 +171,7 @@
         }
 
         .close-modal:hover {
-            color: var(--azul-principal);
+            color: var(--azul-destaque);
         }
         
         /* Formulário */
@@ -186,14 +190,16 @@
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #444;
             border-radius: 5px;
             font-family: inherit;
+            background-color: #222;
+            color: var(--branco);
         }
         
         .form-submit {
-            background-color: var(--azul-principal);
-            color: white;
+            background-color: var(--azul-destaque);
+            color: var(--preto);
             border: none;
             padding: 14px 28px;
             border-radius: 50px;
@@ -202,10 +208,11 @@
             transition: all 0.3s;
             display: block;
             margin: 0 auto;
+            font-weight: bold;
         }
         
         .form-submit:hover {
-            background-color: #0a7acc;
+            background-color: #00c4c4;
         }
         
         /* Tabelas */
@@ -213,21 +220,27 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            border: 1px solid var(--azul-destaque);
         }
         
         .price-table th, .price-table td {
-            border: 1px solid #ddd;
+            border: 1px solid var(--azul-destaque);
             padding: 12px;
             text-align: center;
         }
         
         .price-table th {
-            background-color: var(--azul-principal);
-            color: white;
+            background-color: var(--azul-destaque);
+            color: var(--preto);
+            font-weight: bold;
         }
         
         .price-table tr:nth-child(even) {
-            background-color: #f8f9fa;
+            background-color: rgba(0, 230, 230, 0.1);
+        }
+        
+        .price-table tr:hover {
+            background-color: rgba(0, 230, 230, 0.2);
         }
         
         .discount-badge {
@@ -242,29 +255,29 @@
         
         /* Seção Pix */
         .pix-section {
-            background-color: #f8f9fa;
+            background-color: rgba(0, 230, 230, 0.1);
             padding: 20px;
             border-radius: 10px;
             margin: 30px 0;
             text-align: center;
-            border-left: 4px solid #32CD32;
+            border-left: 4px solid var(--azul-destaque);
         }
         
         .pix-section h3 {
-            color: #32CD32;
+            color: var(--azul-destaque);
             margin-top: 0;
         }
         
         /* FAQ */
         .faq-item {
             margin-bottom: 15px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--azul-destaque);
             border-radius: 5px;
             overflow: hidden;
         }
         
         .faq-question {
-            background-color: #f8f9fa;
+            background-color: rgba(0, 230, 230, 0.1);
             padding: 15px 20px;
             cursor: pointer;
             font-weight: bold;
@@ -276,7 +289,7 @@
         .faq-answer {
             padding: 15px 20px;
             display: none;
-            background-color: white;
+            background-color: rgba(0, 0, 0, 0.3);
         }
         
         /* Rodapé */
@@ -286,6 +299,7 @@
             text-align: center;
             padding: 40px 0;
             margin-top: 50px;
+            border-top: 1px solid var(--azul-destaque);
         }
         
         .footer-logo {
@@ -303,15 +317,16 @@
         }
         
         .payment-methods span {
-            background: rgba(255,255,255,0.1);
+            background: rgba(0, 230, 230, 0.2);
             padding: 8px 15px;
             border-radius: 20px;
+            color: var(--azul-destaque);
         }
 
         /* Botão Imprimir */
         .print-btn {
-            background-color: #3498db;
-            color: white;
+            background-color: var(--azul-destaque);
+            color: var(--preto);
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -325,17 +340,17 @@
         }
 
         .print-btn:hover {
-            background-color: #2980b9;
+            background-color: #00c4c4;
             transform: translateY(-2px);
         }
 
         /* Seção de consulta */
         .consulta-section {
-            background-color: #fff3e0;
+            background-color: rgba(0, 230, 230, 0.1);
             padding: 15px;
             border-radius: 5px;
             margin: 20px 0;
-            border-left: 4px solid #ff9800;
+            border-left: 4px solid var(--azul-destaque);
         }
 
         /* Estilo para a tabela (inicialmente oculta) */
@@ -350,6 +365,106 @@
         }
         .btn-precos.active .fa-chevron-down {
             transform: rotate(180deg);
+        }
+
+        /* Estilos para a nova tabela de preços */
+        .price-section {
+            background-color: var(--preto);
+            padding: 30px 0;
+        }
+        
+        .price-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .price-header img {
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .price-header h2 {
+            color: var(--branco);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .price-header .subtitle {
+            color: var(--azul-destaque);
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+        
+        .service-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 230, 230, 0.3);
+        }
+        
+        .service-name {
+            font-weight: bold;
+            color: var(--branco);
+        }
+        
+        .service-details {
+            text-align: right;
+        }
+        
+        .service-price {
+            color: var(--azul-destaque);
+            font-weight: bold;
+        }
+        
+        .service-deadline {
+            color: var(--azul-destaque);
+            font-size: 0.9rem;
+        }
+
+        .service-category {
+            font-size: 1.5rem;
+            color: var(--azul-destaque);
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--azul-destaque);
+        }
+        
+        .price-footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--branco);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .price-footer p {
+            margin: 10px 0;
+        }
+        
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .partner-logo {
+            height: 60px;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .partner-logo:hover {
+            opacity: 1;
         }
 
         /* Responsivo */
@@ -372,6 +487,19 @@
                 width: 95%;
                 padding: 20px;
             }
+            
+            .service-item {
+                flex-direction: column;
+            }
+            
+            .service-details {
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            .price-header h2 {
+                font-size: 2rem;
+            }
         }
 
         /* Estilos para impressão */
@@ -388,6 +516,8 @@
                 top: 0;
                 width: 100%;
                 padding: 20px;
+                color: #000;
+                background-color: #fff;
             }
             .no-print {
                 display: none !important;
@@ -449,182 +579,160 @@
         </div>
     </section>
 
-    <!-- Seção da Tabela de Preços (inicialmente oculta) -->
-    <section id="tabela-precos-container" class="container">
-        <div id="printable-content">
-            <div class="print-header">
+    <!-- Nova Seção da Tabela de Preços (inicialmente oculta) -->
+    <section id="tabela-precos-container" class="price-section">
+        <div id="printable-content" class="container">
+            <div class="price-header">
                 <img src="pictures/logo-confort-servicos-opticos.png" 
-                     alt="Confort Serviços Ópticos">
-                <h2 style="color: var(--azul-principal);">Tabela de Preços</h2>
+                     alt="Confort Serviços Ópticos" 
+                     class="logo-img">
+                <h2>TABELA DE PREÇO</h2>
+                <p class="subtitle">CONFORT SERVIÇOS ÓPTICOS</p>
+            </div>
+            
+            <div class="service-list">
+                <h3 class="service-category">SERVIÇOS DE MONTAGEM</h3>
                 
-            </div>
-            
-            <h3>MONTAGEM</h3>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th>Material</th>
-                        <th>Tipo</th>
-                        <th>À Vista</th>
-                        <th>A Prazo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="2">Resina</td>
-                        <td>Nylon/Fechada</td>
-                        <td>R$ 10</td>
-                        <td>R$ 15</td>
-                    </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    
-                    <tr>
-                        <td rowspan="2">Policarbonato</td>
-                        <td>Nylon/Fechada</td>
-                        <td>R$ 10</td>
-                        <td>R$ 15</td>
-                    </tr>
-                    <tr>
-                        <td>Parafusada</td>
-                        <td>R$ 40</td>
-                        <td>R$ 40</td>
-                    </tr>
-                    
-                    <tr>
-                        <td rowspan="2">Alto Índice</td>
-                        <td>Nylon/Fechada</td>
-                        <td>R$ 20</td>
-                        <td>R$ 25</td>
-                    </tr>
-                    <tr>
-                        <td>Parafusada</td>
-                        <td>R$ 40</td>
-                        <td>R$ 40</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h3>FABRICAÇÃO DE LENTES</h3>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th>Material</th>
-                        <th>À Vista</th>
-                        <th>A Prazo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Resina</td>
-                        <td>R$ 20</td>
-                        <td>R$ 25</td>
-                    </tr>
-                    <tr>
-                        <td>Policarbonato</td>
-                        <td>R$ 60</td>
-                        <td>R$ 70</td>
-                    </tr>
-                    <tr>
-                        <td>Alto Índice</td>
-                        <td>R$ 60</td>
-                        <td>R$ 70</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><small>*Quando não há forma disponível em estoque será cobrado valor da fabricação da forma</small></p>
-            
-            <h3>BLOCOS</h3>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th>Tipo de Lente</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Multifocal incolor</td>
-                        <td>R$ 20</td>
-                    </tr>
-                    <tr>
-                        <td>Multifocal com antireflexo verde</td>
-                        <td>R$ 30</td>
-                    </tr>
-                    <tr>
-                        <td>Multifocal com antireflexo blue block</td>
-                        <td>R$ 40</td>
-                    </tr>
-                    <tr>
-                        <td>Multifocal fotossensivel</td>
-                        <td>R$ 40</td>
-                    </tr>
-                    <tr>
-                        <td>Multifocal fotossensível com antirreflexo verde</td>
-                        <td>R$ 40</td>
-                    </tr>
-                    <tr>
-                        <td>Multifocal fotossensível com antirreflexo blue block</td>
-                        <td>R$ 80</td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="service-item">
+                    <span class="service-name">1. Montagem (Resina/Policarbonato)</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$15,00</div>
+                        <div class="service-deadline">Prazo: 24 horas</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">2. Montagem Alto Índice (1.59, 1.61, 1.67, 1.74)</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$25,00</div>
+                        <div class="service-deadline">Prazo: 2 dias úteis</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">3. Montagem Parafusada (Parafuso)</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$40,00</div>
+                        <div class="service-deadline">Prazo: 2 dias úteis</div>
+                    </div>
+                </div>
 
-            <!-- Seção de consulta -->
-            <div class="consulta-section">
-                <h4>Demais Lentes (consultar disponibilidade)</h4>
-                <ul>
-                    <li>VS</li>
-                    <li>Alto Índice</li>
-                </ul>
-                <p>Consultar disponibilidade e preços no campo de contato</p>
+                <h3 class="service-category">SERVIÇOS DE SUFASSAGEM</h3>
+                
+                <div class="service-item">
+                    <span class="service-name">4. Surfaçagem (Resina/Policarbonato)</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$25,00</div>
+                        <div class="service-deadline">Prazo: 24 horas</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">5. Surfaçagem Alto Índice (1.59, 1.61, 1.67, 1.74)</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$75,00</div>
+                        <div class="service-deadline">Prazo: 5 dias úteis</div>
+                    </div>
+                </div>
+
+                <h3 class="service-category">OUTROS SERVIÇOS</h3>
+                
+                <div class="service-item">
+                    <span class="service-name">6. Coloração</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$20,00</div>
+                        <div class="service-deadline">Prazo: 2 dias úteis</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">7. Forma (Cilíndrico acima de 4.00)</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$40,00</div>
+                        <div class="service-deadline">Prazo: 4 dias úteis</div>
+                    </div>
+                </div>
+
+                <h3 class="service-category">LENTES E BLOCOS</h3>
+                
+                <div class="service-item">
+                    <span class="service-name">8. Lentes Resina Monofocal</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$25,00</div>
+                        <div class="service-deadline">Prazo: 2 dias úteis</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">9. Lentes Policarbonato</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$70,00</div>
+                        <div class="service-deadline">Prazo: 3 dias úteis</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">10. Lentes Alto Índice (1.67, 1.74)</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$70,00</div>
+                        <div class="service-deadline">Prazo: 5 dias úteis</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">11. Bloco Multifocal Incolor</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$20,00</div>
+                        <div class="service-deadline">Prazo: 2 dias úteis</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">12. Bloco Multifocal Antireflexo Verde</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$30,00</div>
+                        <div class="service-deadline">Prazo: 2 dias úteis</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">13. Bloco Multifocal Blue Block</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$40,00</div>
+                        <div class="service-deadline">Prazo: 3 dias úteis</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">14. Bloco Multifocal Fotossensível</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$40,00</div>
+                        <div class="service-deadline">Prazo: 3 dias úteis</div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-name">15. Bloco Multifocal Fotossensível Blue Block</span>
+                    <div class="service-details">
+                        <div class="service-price">Valor: R$80,00</div>
+                        <div class="service-deadline">Prazo: 5 dias úteis</div>
+                    </div>
+                </div>
             </div>
             
-            <h3>SERVIÇOS ESPECIAIS</h3>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>À Vista</th>
-                        <th>A Prazo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Prismas</td>
-                        <td>sob consulta</td>
-                        <td>sob consulta</td>
-                    </tr>
-                    <tr>
-                        <td>Formas sob medida</td>
-                        <td>R$ 20</td>
-                        <td>R$ 20</td>
-                    </tr>
-                    <tr>
-                        <td>Coloração Uniforme</td>
-                        <td>R$ 20</td>
-                        <td>R$ 20</td>
-                    </tr>
-                    <tr>
-                        <td>Degradê</td>
-                        <td>R$ 20</td>
-                        <td>R$ 20</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="price-footer">
+                <p><strong>REPASSE SEGUE OS RESPECTIVOS VALORES DAS MONTAGENS</strong></p>
+                <p><strong>COMBO MONTAGEM E SUFASSAGEM SOMAM-SE OS PRAZOS</strong></p>
+                
+                <div class="logos-container">
+                    <img src="pictures/logo-tooling.png" alt="TOOLING Equipamentos Ópticos" class="partner-logo">
+                    <img src="pictures/logo-essilor.png" alt="ESSILOR" class="partner-logo">
+                </div>
+            </div>
 
             <button id="printPrices" class="print-btn">
                 <i class="fas fa-print"></i> Imprimir Tabela
             </button>
-
-            <div class="print-footer">
-                <p>Confort Serviços Ópticos - WhatsApp: (81) 98885-4895</p>
-               
-                <p>Atualizado em: <span id="currentDate"></span></p>
-            </div>
         </div>
     </section>
     
@@ -652,7 +760,7 @@
     <div id="orcamentoModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2 style="text-align: center; color: var(--azul-principal); margin-top: 0;">Solicite seu Orçamento</h2>
+            <h2 style="text-align: center; color: var(--azul-destaque); margin-top: 0;">Solicite seu Orçamento</h2>
             <form id="whatsappForm">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
@@ -670,6 +778,7 @@
                         <option value="">Selecione...</option>
                         <option value="Montagem">Montagem</option>
                         <option value="Fabricação">Fabricação de Lentes</option>
+                        <option value="Bloco">Compra de Blocos</option>
                         <option value="Outro">Outro</option>
                     </select>
                 </div>
@@ -690,7 +799,7 @@
     <div id="faqModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2 style="color: var(--azul-principal); text-align: center;">Dúvidas Frequentes</h2>
+            <h2 style="color: var(--azul-destaque); text-align: center;">Dúvidas Frequentes</h2>
             
             <div class="faq-item">
                 <div class="faq-question">
@@ -866,10 +975,6 @@
 
         // Função para imprimir a tabela de preços
         document.getElementById('printPrices').addEventListener('click', function() {
-            // Atualiza a data
-            const now = new Date();
-            document.getElementById('currentDate').textContent = now.toLocaleDateString('pt-BR');
-            
             // Abre a janela de impressão
             window.print();
         });
